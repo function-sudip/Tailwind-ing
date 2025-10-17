@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="output.css" rel="stylesheet">
-  <link rel="stylesheet" href="stlye.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1 class="text-center text-lg text-blue-400 mt-2">Hello World</h1>
-    <h1 class="text-center text-cyan-400 mt-5">bye world</h1>
+<body class="pb-[50vh]">
+    <h1 class="text-center text-lg text-blue-400 mt-2">Hello Tailwind</h1>
     <h2 class="text-center text-green-500">Yo what is up there</h2>
     <ol class="text-center text-red-400">
         Best people list:
@@ -22,12 +21,85 @@
         <h1 class="font-mono font-extrabold text-yellow-500 text-[33px]">Welcome</h1>
     </div>
 
-    <h1 class="text-center text-[30px]">Time to Flex</h1>
+    <h1 class="text-center text-[30px]">Time to Flex and Grid</h1>
     <div class="w-full h-[2px] bg-green-400 mt-6"></div>
     <div class="flex flex-col items-center space-y-8 mt-3">
         <div class="rounded-full bg-blue-500 w-16 h-16"></div>
         <div class="rounded-full bg-orange-500 w-16 h-16"></div>
         <div class="rounded-full bg-yellow-500 w-16 h-16"></div>
     </div>
+    <div class="w-full h-[2px] bg-green-400 my-6 "></div>
+    <div class="grid grid-cols-3 gap-2 col-end-2">
+        <div class="rounded-full bg-blue-500  h-16"></div>
+        <div class="rounded-full bg-orange-500  h-16"></div>
+        <div class="rounded-full bg-yellow-500  h-16"></div>
+    </div>
+    <div class="w-full h-[2px] bg-black my-6 "></div>
+    <h1 class="text-center text-[30px]">Media Queries and Responsive Design</h1>
+    <div class="w-full h-[2px] bg-black my-6 "></div>
+
+    <div class="max-md:bg-slate-400 text-center max-sm:bg-blue-100 text-gray-800">
+        <h1>Just playing with media device</h1>
+            <ul class="">
+                <li>sm = small</li>
+                <li>md = medium</li>
+                <li>lg = large</li>
+                <li>xl = extra large</li>
+                <li>2xl = double xl</li>
+            </ul>
+        
+    </div>
+    <div class="w-full h-[2px] bg-black my-6 "></div>
+        <h1 class="text-center text-[30px]">Theme</h1>
+    <div class="w-full h-[2px] bg-black my-6 "></div>
+
+    <div class="dark:bg-gray-900 dark:text-white bg-white text-black h-52 w-full flex items-center justify-center">
+        <p class="text-[20px]">The theme is Responsive to your browsers setting</p>
+    </div>
+    <div class="w-full  flex flex-col justify-center items-center ">
+        <h1 class="text-[30px]">Switch theme</h1>
+        <div class="dark:bg-gray-900 bg-green-400  dark:text-white text-black p-2.5 max-w-96 text-justify rounded-md">
+            <h3 class="text-2xl text-yellow-200">Toggle</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum repudiandae quis molestias dolor suscipit excepturi cumque praesentium, porro facere blanditiis itaque obcaecati! Accusamus debitis officiis culpa soluta? Dolorem, odio aut?
+            </p>
+            <br>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="theme-changer" class="sr-only peer" >
+                <div class="w-14 h-8 bg-gray-300 rounded-full peer peer-checked:bg-blue-500 
+                            after:content-[''] after:absolute after:top-1 after:left-1 
+                            after:bg-white after:border after:border-gray-300 
+                            after:h-6 after:w-6 after:rounded-full after:transition-all 
+                            peer-checked:after:translate-x-6"></div>
+            </label>
+            
+        </div>
+        
+        
+    </div>
+    
+
+    
+
 </body>
 </html>
+
+<script>
+  // On page load, apply saved theme
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    document.getElementById("theme-changer").checked = true; // Sync checkbox
+  }
+
+  // Checkbox toggle
+  const themeBox = document.getElementById("theme-changer");
+  themeBox.addEventListener("change", function() {
+    if (this.checked) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
